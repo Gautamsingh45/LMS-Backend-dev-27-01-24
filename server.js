@@ -3,7 +3,7 @@ const cors = require("cors");
 const path = require('path');
 const dbConfig = require("./app/config/db.config");
 // adding
-const session = require('express-session');
+
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 
@@ -55,7 +55,7 @@ db.mongoose.connect("mongodb+srv://gautamsingh893591:V2jTulad1dfL6bE9@cluster0.v
     collection: 'sessions',
   };
 
-  app.use(session({ secret: 'your-secret-key', resave: true,  saveUninitialized: true ,store: MongoStore.create(mongoStoreOptions)}));
+  
 // simple route
 // app.get("/", (req, res) => { 
 //   res.json({ message: "Welcome to bezkoder application." });
