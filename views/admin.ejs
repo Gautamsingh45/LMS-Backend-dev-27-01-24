@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>home</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="/css/styles.css">
+<style>
+   .logo .large-logo{
+      width: 200px;
+      height: 65px;
+
+   }
+   .logo .small-logo{
+      
+      width: 112px;
+      height: 85px;
+      border-radius: 20px;
+  }
+   .logo img{
+      width: 100%;
+      height: 100%;
+   }
+   @media screen and (max-width: 1600px) {
+      .logo .large-logo {
+          display: block; /* Hide the large logo on small screens */
+      }
+      .logo .small-logo {
+          display: none; /* Show the small logo on small screens */
+      }
+  }
+  @media screen and (max-width: 600px) {
+      .logo .large-logo {
+          display: none; /* Hide the large logo on small screens */
+      }
+      .logo .small-logo {
+          display: block; /* Show the small logo on small screens */
+      }
+  }
+
+  /* admin css*/
+  ul {
+   list-style-type: none;
+   padding: 0;
+   
+ }
+ 
+ li {
+   border: 1px solid #ccc;
+   margin-bottom: 10px;
+   padding: 10px;
+   background-color: white;
+ }
+ 
+ /* Style for the course image (if applicable) */
+ li img {
+   max-width: 100%;
+   height: auto;
+   margin-bottom: 10px;
+ }
+ 
+ /* Style for the course details */
+ li div {
+   font-size: 16px;
+ }
+ 
+ /* Strong styling for the course name */
+ li div strong {
+   font-size: 18px;
+   color: #333;
+ }
+ 
+ /* Additional styling for other details */
+ li div span {
+   color: #777;
+ }
+</style>
+</head>
+<body>
+
+<header class="header">
+   
+   <section class="flex">
+
+      <a href="/home" class="logo">
+         <!-- <div class="logo1"> -->
+            <img class="large-logo" src="/images/dark.png">
+            <img class="small-logo" src="/images/block_logo.png" alt="Small Logo">
+         <!-- </div> -->
+      </a>
+
+      <form action="search.html" method="post" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="search-btn" class="fas fa-search"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="toggle-btn" class="fas fa-sun"></div>
+      </div>
+
+      <div class="profile">
+         <img src="/images/pic-1.jpg" class="image" alt="">
+         <h3 class="name"><%= user.username %></h3>
+         <p class="role">College</p>
+         <a href="/profile" class="btn">view profile</a>
+         <div class="flex-btn">
+            <a href="/logout" class="option-btn">logout</a>
+            <a href="/logout" class="option-btn">register</a>
+         </div>
+      </div>
+
+   </section>
+
+</header>   
+
+<div class="side-bar">
+
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="profile">
+      <img src="/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name"><%= user.username %></h3>
+     
+      <p class="role">College</p>
+      <a href="/profile" class="btn">view profile</a>
+   </div>
+
+   <nav class="navbar">
+      <a href="#"><i class="fas fa-home"></i><span>Dashboard</span></a>
+      
+      <a href="#"><i class="fas fa-graduation-cap"></i><span>Attendance</span></a>
+      <a href="#"><i class="fa-solid fa-coins"></i></i><span>Assignment</span></a>
+      <a href="/createClass/<%= userId %>"><i class="fas fa-question"></i><span>Create Class</span></a>
+      <a href="#"><i class="fas fa-headset"></i><span>Contact Us</span></a>
+   </nav>
+
+</div>
+<section class="courses">
+
+   <h1 class="heading">All Student</h1>
+  
+   <h1><%= user.role %></h1>
+  
+   <ul>
+      <% courses.forEach(course => { %>
+        <li>
+          <!--  <img src="<%= course.image %>" alt="<%= course.courseName %> Image"> -->
+          <div>
+            <strong>userName : </strong><%= course.username %> <br>  <strong>Email : </strong><%= course.email %> <br> <strong>Phone : </strong><%= course.phone %> <br> <strong>courseName : </strong><%= course.courseName %> <br><strong>Graduation : </strong><%= course.graduation %><br><strong>College : </strong><%= course.college %>
+          </div>
+        </li>
+      <% }); %>
+    </ul>
+
+   
+  
+   <!-- <div class="box-container">
+
+      <div class="box">
+         <div class="tutor">
+            <img src="/images/Dream.jpg" alt="">
+            <div class="info">
+               <h3>College Panel</h3> -->
+               <!-- <span>21-10-2022</span> -->
+            <!-- </div>
+         </div>
+         <div class="thumb">
+            <img src="/images/col.jpg" alt=""> -->
+            <!-- <span>10 videos</span> -->
+         <!-- </div>
+         <h3 class="title">Let's start with Blockcept.ai</h3>
+         <a href="" class="inline-btn">Create</a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <img src="/images/Dream.jpg" alt="">
+            <div class="info">
+               <h3>Admin Panel</h3> -->
+               <!-- <span>21-10-2022</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="/images/Amin.jpg" alt=""> -->
+            <!-- <span>10 videos</span> -->
+         <!-- </div>
+         <h3 class="title">Let's start with Blockcept.ai</h3>
+         <a href="/playlist" class="inline-btn">Create</a>
+      </div>
+
+      
+
+      
+
+   </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <footer class="footer">
+
+   &copy; copyright @ 2023 by <span>Blockcept.ai</span> | all rights reserved!
+   
+</footer> -->
+
+
+<!-- custom js file link  -->
+<script src="/js/scripts.js"></script>
+
+   
+</body>
+</html>
