@@ -426,16 +426,16 @@ app.post('/createClass/:userId', async (req, res) => {
 
       await newClass.save();
       req.session.newClassId = newClass._id;
-      if (req.body.roles) {
-        const roles = await Role.find({ name: { $in: req.body.roles } });
-        newClass.roles = roles.map((role) => role._id);
-      } else {
-        const role = await Role.findOne({ name: "user" });
-        newClass.roles = [role._id];
-      }
+      // if (req.body.roles) {
+      //   const roles = await Role.find({ name: { $in: req.body.roles } });
+      //   newClass.roles = roles.map((role) => role._id);
+      // } else {
+      //   const role = await Role.findOne({ name: "user" });
+      //   newClass.roles = [role._id];
+      // }
      
   
-      await newClass.save();
+      // await newClass.save();
       // Redirect to a page or render a response as needed
       res.send('Course created successfully!');
   } catch (error) {
