@@ -425,7 +425,7 @@ app.post('/createClass/:userId', async (req, res) => {
       });
 
       await newClass.save();
-      req.session.newClassId = newClass._id;
+    
       // if (req.body.roles) {
       //   const roles = await Role.find({ name: { $in: req.body.roles } });
       //   newClass.roles = roles.map((role) => role._id);
